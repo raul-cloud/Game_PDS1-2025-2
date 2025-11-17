@@ -1,0 +1,54 @@
+Sistema de movimentação:
+Descrição:
+-Como usuário, eu quero me movimentar pelo mundo.
+
+Critérios de aceitação:
+-Ver o mapa;
+-Movimentação bem definida;
+-Respeitar colisão com objetos;
+
+Sistema de Combate:
+Descrição:
+-Desejo ser capaz de executar ações de combate com base em táticas pessoais.
+
+Critérios de aceitação:
+-Mostrar informações sobre ataque e defesa;
+-Mostrar tipos de ataque: Dano mágico e dano físico;
+-Selecionar inimigos;
+-Selecionar ações (Curar, defender e atacar);
+
+Sistema de recompensa:
+Descrição:
+-Desejo que haja um equilíbrio entre melhoria dos atributos pessoais e dificuldade da gameplay.
+
+Critérios de aceitação:
+-Distribuir XP por eliminações;
+-Recompensas por tarefas secundárias e principais;
+-Itens "dropáveis";
+
+Interação com o Menu:
+Descrição:
+-Desejo configurar aspectos básicos da gameplay.
+
+Critérios de aceitação:
+-Selecionar saves;
+-Controlar aspectos audiovisuais;
+-Modificador de dificuldade;
+
+Interação usuário/mundo:
+Descrição:
+-Desejo interagir com os elementos do ambiente.
+
+Critérios de aceitação:
+-Dialogar com personagens;
+-Receber missões;
+-Realizar interações com objetos;
+
+Sistema de inventário:
+Descrição:
+-Desejo ser capaz de visualizar os meus itens e organizá-los.
+
+Critérios de aceitação:
+-Mostrar informações sobre cada item armazenado;
+-Estabelecer limites quanto ao espaço de armazenamento;
+-Selecionar itens;

@@ -1,0 +1,53 @@
+Nome da Classe: Pessoa
+Responsabilidades:
+-Definir andar;
+-Definir Vida;
+-Definir Mana;
+-Definir Vivo/Morto;
+-Definir Dano;
+Colaboradores: É UMA CLASSE PAI
+ 
+Nome da Classe: Item
+Responsabilidades:
+-Definir Nome;
+-Definir valor  (caso o item seja comercializável);
+-Definir tipo (consumível, ataque...);
+-Definir raridade;
+-Definir Uso (se usado, é excluído, no caso de uso único);
+Colaboradores: É UMA CLASSE PAI
+ 
+Nome da Classe: Objeto
+Responsabilidades:
+-Definir colisão;
+-Definir escala;
+-Definir sprite;
+-Definir posição;
+-Definir ativado (sumir da tela quando não precisa);
+Colaboradores:  Pessoa, Heroi
+ 
+Nome da Classe: Heroi
+Responsabilidades:
+-Definir Classe;
+-Definir nível;
+-Definir status;
+-Definir uso de item;
+-Definir dinheiro;
+Colaboradores:  Pessoa, Item
+ 
+Nome da Classe: Inimigo
+Responsabilidades:
+-Definir status;
+-Definir atingido;
+-Definir drop (sortear um drop entre uma lista);
+-Definir ação;
+-Definir fraqueza;
+Colaboradores:  Pessoa, Heroi
+ 
+Nome da Classe: Skill
+Responsabilidades:
+-Definir dano;
+-Definir tipo;
+-Definir custo (quantidade de mana);
+-Definir elemento;
+-Definir cooldown;
+Colaboradores:  Heroi, Inimigo
