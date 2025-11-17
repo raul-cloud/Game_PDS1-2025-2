@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <queue>
+#include "Entidade.hpp"
 
 #define MAX_GRID_SIZE 40
 
@@ -24,6 +25,7 @@ class Dungeon {
   
 
   std::vector<std::vector<int>> dungeon;
+  std::vector<Entidade> inimigos;
   
   Coordenada start = {1, 1};
   Coordenada exit = {MAX_GRID_SIZE - 2, MAX_GRID_SIZE - 2};
@@ -49,8 +51,9 @@ class Dungeon {
 //    bool SairDungeon (Entidade& player);
     void Atualizar ();
     void ResetarDungeon ();
+    void SetPosInicial(Entidade& player);
  //   void SetPosInicial(Entidade& player);
-
+    void CriarInimigos (std::vector<std::vector<int>>& grid);
     bool LoadSprites ();
     bool LoadMusica ();
 

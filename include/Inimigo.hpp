@@ -21,7 +21,6 @@ class Inimigo : public Entidade {
     private:
 
         /// @brief O status atual do inimigo
-        std::string _status;
 
         /// @brief O vetor de itens que o inimigo pode derrubar ao ser derrotado
         std::vector<Item> itens;
@@ -30,7 +29,6 @@ class Inimigo : public Entidade {
         int _tier;
 
         /// @brief A fraqueza do inimigo
-        std::string _fraqueza;
 
     public:
         /**
@@ -42,7 +40,7 @@ class Inimigo : public Entidade {
         * @param tier O nivel de poder do inimigo
         * @param fraqueza A fraqueza do inimigo
         */
-        Inimigo(int vida, int vidaMAX, int defesa, int defesa_base, bool vivo, int x, int y, int velocidade, int atk, const std::string& sprite, int tier, std::string& fraqueza, std::string &status);
+        Inimigo(int vida, int vidaMAX, int defesa, int defesa_base, bool vivo, int x, int y, int velocidade, int atk, const std::string& sprite, int tier);
         ///@brief Construtor padrao da classe Inimigo
         Inimigo();
 
@@ -53,16 +51,12 @@ class Inimigo : public Entidade {
         void desenhar_inimigo() const;
 
         ///@brief Define o status atual do inimigo
-        void set_status(const std::string& stat);
 
         ///@brief Retorna o status atual do inimigo
-        const std::string get_status() const;
 
         ///@brief Define a fraqueza do inimigo
-        void set_fraqueza(std::string& fraqueza);
 
         ///@brief Retorna a fraqueza do inimigo
-        const std::string& get_fraqueza() const;
 
         /**
         * @brief Verifica se um ataque do inimigo acertou um alvo

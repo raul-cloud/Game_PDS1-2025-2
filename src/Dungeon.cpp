@@ -38,6 +38,7 @@ std::vector<std::vector<int>>& Dungeon::GerarDungeon () {
     AdicionarBau(dungeon);
     AdicionarInimigo(dungeon);
     AdicionarSaida(dungeon);
+    CriarInimigos(dungeon);
     return dungeon;
 }
 
@@ -153,6 +154,10 @@ void Dungeon::DesenharDungeon() {
             }
 
             DrawRectangle(j * tileW, i * tileH, tileW, tileH, cor);
+
+            for (auto& inimigo : inimigos) {
+              inimigo.Draw(GREEN);
+            }
         }
     }
   //  if(SairDungeon()) {
@@ -213,9 +218,29 @@ void Dungeon::AdicionarInimigo (std::vector<std::vector<int>>& grid) {
     for (int j = 0; j < (int)grid[0].size(); ++j) {
       if(grid[i][j] == 0) {
         randnum = GetRandomValue(0, 100);
-        if (randnum > 90) {
+        if (randnum > 95) {
           grid[i][j] = 4;
         }
+      }
+    }
+  }
+}
+
+void Dungeon::CriarInimigos (std::vector<std::vector<int>>& grid) {
+  inimigos.clear();
+    int larguraTela = GetScreenWidth();
+    int alturaTela = GetScreenHeight();
+
+    int tileW = larguraTela / (int)dungeon.size();
+    int tileH = alturaTela / (int)dungeon.size();
+
+
+  for(int i = 0; i < (int)grid.size(); ++i) {
+    for (int j = 0; j < (int)grid[0].size(); ++j) {
+      if (grid[i][j] == 4) {
+        Entidade e(10, 10, 10, 10, true, j * tileW, i * tileH, 10, 10, " ");
+        inimigos.push_back(e);
+                            
       }
     }
   }
@@ -247,7 +272,7 @@ void Dungeon::AdicionarSaida (std::vector<std::vector<int>>& grid) {
   //return CheckCollisionPointRec((GetMousePosition(), rec) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 //}
 
-//void Dungeon::SetPosInicial(Entidade& player) {
- // player.x = start.x;
-  //player.y = start.y;
-//}
+void Dungeon::SetPosInicial(Entidade& player) {
+  player.set_x(start.x);
+  player.set_y(start.y);
+}
