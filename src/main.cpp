@@ -18,7 +18,6 @@ int main() {
 
     Entidade player;
     Dungeon dungeon;
-
     bool jogando = false;     // controla se já saiu do menu
 
     // Loop principal
@@ -33,7 +32,7 @@ int main() {
 
             if (menu.get_jogar()) {
                 jogando = true;
-                dungeon.GerarDungeon();
+                dungeon.GerarDungeon(player);
                 dungeon.SetPosInicial(player);
             }
         }
@@ -44,6 +43,9 @@ int main() {
             if (IsKeyDown(KEY_A)) player.Andar(-player.get_velocidade(), 0);
             if (IsKeyDown(KEY_W)) player.Andar(0, -player.get_velocidade());
             if (IsKeyDown(KEY_S)) player.Andar(0, player.get_velocidade());
+            if (dungeon.CheckCollisionEnemy(player)){
+              break;
+            }
         }
 
         // ------------------------------------------

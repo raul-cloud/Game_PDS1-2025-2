@@ -16,7 +16,7 @@ Dungeon::~Dungeon () {}
 
 
 //Gera a dungeon
-std::vector<std::vector<int>>& Dungeon::GerarDungeon () {
+std::vector<std::vector<int>>& Dungeon::GerarDungeon (Entidade& player) {
     while (true) {
         for (int i = 0; i < MAX_GRID_SIZE; ++i) {
             for (int j = 0; j < MAX_GRID_SIZE; ++j) {
@@ -38,6 +38,7 @@ std::vector<std::vector<int>>& Dungeon::GerarDungeon () {
     AdicionarBau(dungeon);
     AdicionarInimigo(dungeon);
     AdicionarSaida(dungeon);
+    SairDungeon(player,dungeon);
     CriarInimigos(dungeon);
     return dungeon;
 }
@@ -127,8 +128,8 @@ bool Dungeon::TemCaminho(Coordenada comeco, Coordenada end) {
   return false;
 }
 
-void Dungeon::ResetarDungeon () {
-  GerarDungeon();
+void Dungeon::ResetarDungeon (Entidade& player) {
+  GerarDungeon(player);
   return;
 }
 
@@ -258,21 +259,36 @@ void Dungeon::AdicionarSaida (std::vector<std::vector<int>>& grid) {
   grid[exit.y][exit.x] = 2;
 }
 
-//bool Dungeon::SairDungeon (Entidade& player) {
-  //int x = player.x;
- // int y = player.y;
-
-  //if (dungeon[x][y] == 3) {
-   // return true;
-  //}
- // return false;
-//}
+bool Dungeon::SairDungeon (Entidade& player, std::vector<std::vector<int>>& grid) {
+  int x = player.get_x();
+  int y = player.get_y();
+  if (grid[x][y] == 3) {
+    ResetarDungeon(player);
+    return true;
+  }
+  return false;
+}
 
 //bool Dungeon::CliqueMouse (Rectangle rec) const {
   //return CheckCollisionPointRec((GetMousePosition(), rec) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 //}
 
-void Dungeon::SetPosInicial(Entidade& player) {
-  player.set_x(start.x);
-  player.set_y(start.y);
+void Dungeon::SetPosInicial (Entidade& player) {
+    int larguraTela = GetScreenWidth();
+    int alturaTela = GetScreenHeight();
+
+    int tileW = larguraTela / (int)dungeon.size();
+    int tileH = alturaTela / (int)dungeon.size();
+    
+    player.set_x(start.x * tileH);
+    player.set_y(start.y * tileW);
+}
+
+bool Dungeon::CheckCollisionEnemy (Entidade& player) {
+  for (auto& monstro : inimigos) {
+    if (CheckCollisionRecs(player.get_espaco_colisao(), monstro.get_espaco_colisao())) {
+      return true;
+    }
+  }
+  return false;
 }

@@ -62,12 +62,12 @@ class Objeto {
         /**@brief Define a posicao do objeto no eixo X
          * @param nova posicao x do objeto
          */
-        void set_x (const int novo_x);
+        void set_x (int novo_x);
 
         /**@brief Define a posicao do objeto no eixo Y
          * @param nova posicao y do objeto 
          */
-        void set_y (const int novo_y);
+        void set_y (int novo_y);
 
         /**@brief Define o estado do objeto
          * @param novo estado do objeto

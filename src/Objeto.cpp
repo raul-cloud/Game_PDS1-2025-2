@@ -33,11 +33,11 @@ bool Objeto::get_ativo () const{
     return this->_ativo;
 }
 
-void Objeto::set_x (const int novo_x){
+void Objeto::set_x (int novo_x){
     this->_x = novo_x;
 }
 
-void Objeto::set_y (const int novo_y){
+void Objeto::set_y (int novo_y){
     this->_y = novo_y;
 }
 
